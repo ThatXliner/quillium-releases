@@ -1,0 +1,9 @@
+  name: Rebuild landing site
+  on:
+    release:
+      types: [published]
+  jobs:
+    trigger:
+      runs-on: ubuntu-latest
+      steps:
+        - run: curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
